@@ -44,7 +44,7 @@ async function main() {
         DISTRIBUTER_CONTRACT_ADDRESS,
     } = getContractAddress();
 
-    console.log(`##### This script withdraw USDC from contract ${DISTRIBUTER_CONTRACT_ADDRESS} on ${network.name}`);
+    console.log(`##### This script is gonna withdraw USDC from contract ${DISTRIBUTER_CONTRACT_ADDRESS} on ${network.name}`);
     console.log(`##### USDC's contract is ${ERC20_CONTRACT_ADDRESS} on ${network.name}`);
     // signers
     const [owner] = await ethers.getSigners();
@@ -68,7 +68,7 @@ async function main() {
 
     console.log(`---------------`)
     console.log(`#### the USDC balacne of conract is: `)
-    console.log((balance).toString())
+    console.log(`${(balance).toString()}/10^6`)
     console.log(`---------------`)
     // do the Withdraw
     console.log(`#### Withdrawing the token... `)
