@@ -1,3 +1,54 @@
+# How to use this repo
+## Overview
+本レポはトークンをエアドロあるいは賞金を配るために用いられる。
+- This repository is for delivering token to a group of addresses and it can set their amounts to be received. 
+- Distributing token address can be set as you wish. 
+- The Distributor contracts are upgradeable. 
+- This repository is modified for Polygon, but it can be customized for other network as well. 
+
+
+## Hardhat & Frontend, npm installation
+前準備
+- $ git clone ...
+- $ cd frontend
+- $ npm install
+- $ cd hardhat
+- $ npm install
+
+## How to set the recievers' addresses and amount
+ `rawRecipientsInfo.json`ファイルを使って受取人と金額を設定
+- Change the `rawRecipientsInfo.json` file into what you want. The `uniquekey` needs to be the same.  
+- uniqueKey: To handle duplications of recipients, specify unique key for the pair of address and amount. Please see [the detail of the data structure](https://gist.github.com/terrier-lover/80a2fb07320248a5a5de06b75caa0aed) used in this contract.
+
+## Set .env file
+前準備
+.envファイルを設定
+- Add all the information in the .env file. 
+  - MATIC_URL: Your API key from 3rd party service 
+  - MATIC_PRIVATE_KEY_OWNER: your account's private key
+  - MATIC_ERC20_CONTRACT_ADDRESS: The distributing token's contract address. 
+  - MATIC_DISTRIBUTER_CONTRACT_ADDRESS: No need to fill. It will be filled automatically when you deploy the contracts.  
+  - 
+
+
+## How to deploy and withdraw
+デプロイやウィズドロー
+- $ cd hardhat 
+
+- $ npx hardhat run scripts/deploy.ts --network matic
+
+- $ npx hardhat run scrippts/withdraw.ts --network matic
+## Frontend, prepare webserver
+- $ cd frontend
+- $ npm start
+
+# How to test
+- cd hardhat
+- npx hardhat test
+
+
+------------------
+> Contents below was written by the original creator "terrior-lover"
 # Rewards Distributer
 This software provides a functionality to distribute tokens as rewards to target users. The distribution is based on Merkle Tree algorithm. Admins of the contract can specify any tokens to distribute to their users.
 
