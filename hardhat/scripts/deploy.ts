@@ -26,6 +26,7 @@ const {
 
 /***** Change following values based on your needs *****/
 const INITIAL_MINT_AMOUNT_WITHOUT_DECIMALS = 0.05;
+const SHOULD_TRANSFER_INITIAL_MINT_AMOUNT_TO_CONTRACT = false; // if set false, you need to send token later on
 const SHOULD_RECIPIENT_CLAIM_REWARD = true;
 const SHOULD_GENERATE_ENV_FILE = true;
 const SHOULD_GENERATE_JSON_FOR_TARGET_RECIPIENTS = true;
@@ -39,6 +40,7 @@ const SHOULD_USE_EXTERNAL_ERC20_TOKEN = true; // Set true if you want to use ext
  */
 async function main() {
     console.log(`##### This script deploys contract to ${network.name} with following settings:`);
+    console.log(`SHOULD_TRANSFER_INITIAL_MINT_AMOUNT_TO_CONTRACT=${getYesOrNo(SHOULD_TRANSFER_INITIAL_MINT_AMOUNT_TO_CONTRACT)}`); 
     console.log(`SHOULD_RECIPIENT_CLAIM_REWARD=${getYesOrNo(SHOULD_RECIPIENT_CLAIM_REWARD)}`);
     console.log(`SHOULD_GENERATE_ENV_FILE=${getYesOrNo(SHOULD_GENERATE_ENV_FILE)}`);
     console.log(`SHOULD_GENERATE_JSON_FOR_TARGET_RECIPIENTS=${getYesOrNo(SHOULD_GENERATE_JSON_FOR_TARGET_RECIPIENTS)}`);
@@ -95,14 +97,16 @@ async function main() {
             owner,
         });
     }
-    console.log(`transfer amount: ${INITIAL_MINT_AMOUNT_WITHOUT_DECIMALS}`)
-    await transferERC20({
-        amount: INITIAL_MINT_AMOUNT_WITHOUT_DECIMALS,
-        targetAddress: distributer.address,
-        erc20: erc20,
-        owner,
-    });
-    console.log("transfer is over! ")
+    if (SHOULD_TRANSFER_INITIAL_MINT_AMOUNT_TO_CONTRACT) {
+        console.log(`transfer amount: ${INITIAL_MINT_AMOUNT_WITHOUT_DECIMALS}`)
+        await transferERC20({
+            amount: INITIAL_MINT_AMOUNT_WITHOUT_DECIMALS,
+            targetAddress: distributer.address,
+            erc20: erc20,
+            owner,
+        });
+        console.log("transfer is over! ")
+    }
     
     const distributerBalance = await erc20.balanceOf(distributer.address);
     console.log(
