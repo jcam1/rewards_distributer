@@ -28,7 +28,8 @@
   - MATIC_PRIVATE_KEY_OWNER: your account's private key
   - MATIC_ERC20_CONTRACT_ADDRESS: The distributing token's contract address. 
   - MATIC_DISTRIBUTER_CONTRACT_ADDRESS: No need to fill. It will be filled automatically when you deploy the contracts.  
-  - 
+  - POLYSCAN_API_KEY: Polyscan's API key for verifying contracts.
+  - MATIC_PRIVATE_KEY_OTHER1: No need to fill only if you want. 
 
 
 ## How to deploy and withdraw
@@ -48,7 +49,7 @@
 
 
 ------------------
-> Contents below was written by the original creator "terrior-lover"
+> Contents below was written by the original creator [terrier-lover](https://github.com/terrier-lover/rewards_distributer)
 # Rewards Distributer
 This software provides a functionality to distribute tokens as rewards to target users. The distribution is based on Merkle Tree algorithm. Admins of the contract can specify any tokens to distribute to their users.
 
