@@ -11,15 +11,19 @@ const ENV = process.env;
 
 const DEFAULT_RETRY: boolean | number = false;
 
-const CARD_LIST1 = (<FundDistributionCardList key="card-list-1">
+const CARD_LIST1 = (
+<FundDistributionCardList key="card-list-1">
   Get more JPYC <Link href='https://jpyc.jp/jip.pdf' color="green.500" fontWeight="bold" isExternal>
     here <ExternalLinkIcon mx='2px' mb="4px" />
   </Link>.
-</FundDistributionCardList>);
+</FundDistributionCardList>
+);
 
-const CARD_LIST4 = (<FundDistributionCardList key="card-list-1">
-  Get rewards by providing liquidity
-</FundDistributionCardList>);
+const CARD_LIST4 = (
+  <FundDistributionCardList key="card-list-1">
+    Get rewards by providing liquidity
+  </FundDistributionCardList>
+  );
 
 const CARD_LIST2 = (
   <FundDistributionCardList key="card-list-2">
@@ -32,6 +36,7 @@ const CARD_LIST3 = (
       こちら <ExternalLinkIcon mx='2px' mb="4px" /></Link>へお問い合わせください
   </FundDistributionCardList>
 );
+
 const CARD_LISTS = [
   CARD_LIST1,
   CARD_LIST4,
