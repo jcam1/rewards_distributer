@@ -47,6 +47,7 @@
 - cd hardhat
 - npx hardhat test
 
+# Contracts' structures
 ![contractArchitecture](backup/contracts/structure.drawio.svg)
 
 ------------------
