@@ -47,6 +47,7 @@
 - cd hardhat
 - npx hardhat test
 
+![contractArchitecture](backup/contracts/structure.drawio.svg)
 
 ------------------
 > Contents below was written by the original creator [terrier-lover](https://github.com/terrier-lover/rewards_distributer)
