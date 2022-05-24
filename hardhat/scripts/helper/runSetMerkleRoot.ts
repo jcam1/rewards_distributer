@@ -19,6 +19,11 @@ const {
 // Before executing this script, make sure that you set the new json file.
 async function main() {
     const { erc20, distributer } = await getRelevantContracts();
+    
+    console.log("After changed the json file in hardhat folder, we're gonna reset the merkle root and reset the frontend json file");
+    console.log("---------------------------------------");
+    console.log("erc20 address is: ", erc20.address);
+    console.log("distributer address is: ", distributer.address);
 
     const balance = await erc20.balanceOf(distributer.address);
     const tokenDecimals = await erc20.decimals();

@@ -54,7 +54,7 @@ const config: HardhatUserConfig = {
           // ENV.RINKEBY_PRIVATE_KEY_OTHER1 == null
           //   ? null : ENV.RINKEBY_PRIVATE_KEY_OTHER1,
         ].filter(notEmpty),
-        gasPrice: 35000000000, // set this value based on the situation 
+        gasPrice: 36000000000, // set this value based on the situation 
         chainId: COMMON_VARIABLES_AND_FUNCTIONS.CHAIN_IDS.MATIC,
        }
     // geth_localhost: {
